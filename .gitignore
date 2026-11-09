@@ -1,0 +1,16 @@
+bin/
+obj/
+obj_*/
+*.user
+.vs/
+.claude/
+Logs/
+settings.json
+
+# Game files and anything made from them must never be committed.
+*.uop
+*.mul
+*.dds
+*.nif
+*.trace
+tools/flame-tuner/data/

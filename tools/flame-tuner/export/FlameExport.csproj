@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Writes the flame tuner's images from the user's own install. Not part of the solution.
+       Build the client first: this links against its output. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <ClientBin>$(MSBuildThisFileDirectory)..\..\..\external\ClassicUO\bin\Release\net10.0\</ClientBin>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="ClassicUO.Assets"><HintPath>$(ClientBin)ClassicUO.Assets.dll</HintPath></Reference>
+    <Reference Include="ClassicUO.KR"><HintPath>$(ClientBin)ClassicUO.KR.dll</HintPath></Reference>
+    <Reference Include="ClassicUO.IO"><HintPath>$(ClientBin)ClassicUO.IO.dll</HintPath></Reference>
+    <Reference Include="ClassicUO.Utility"><HintPath>$(ClientBin)ClassicUO.Utility.dll</HintPath></Reference>
+    <None Include="$(ClientBin)zlib.dll" CopyToOutputDirectory="PreserveNewest" Link="zlib.dll" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,43 @@
+// A candle's flame. Written for this project; the textures are read from the
+// user's own install at run time.
+particlesystem "OurCandle" 1
+{
+    MinEmitTime = 2
+
+    // The teardrop: a few overlapping flames, so it wavers without jumping.
+    eventsequence "teardrop"
+    {
+        type = Axial
+        texture = "03000010_flame.tga"
+        destBlendMode = ALPHA_ONE
+        scaleMultiplier = 0.55
+        numparticles = 4
+        emitrate = 10
+        lifetime = random(0.26,0.36)
+        chaoslocation = XYZ(random(-0.02,0.02),0,0.05)
+        initial length = 0.5
+        fade so at 0.1 length = random(0.72,0.92)
+        fade so final length = 0.6
+        initial scale = 0.46
+        fade so final scale = 0.34
+        initial color = RGBA(0.14,0.1,0.05,1)
+        fade so at 0.08 color = RGBA(0.5,0.38,0.2,1)
+        fade so final color = RGBA(0,0,0,1)
+    }
+
+    // A faint warm bloom around it.
+    eventsequence "bloom"
+    {
+        texture = "03002014_flare.tga"
+        destBlendMode = ALPHA_ONE
+        scaleMultiplier = 0.55
+        numparticles = 3
+        emitrate = 4
+        lifetime = 0.7
+        chaoslocation = XYZ(0,0,0.12)
+        initial scale = random(1.1,1.35)
+        initial color = RGBA(0,0,0,1)
+        fade so at 0.3 color = RGBA(0.16,0.11,0.05,1)
+        fade so final color = RGBA(0,0,0,1)
+    }
+}

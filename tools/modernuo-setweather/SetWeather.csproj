@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- The [SetWeather command as a ModernUO add-on, built against a published server:
+       dotnet build -c Release -p:ModernUODist=<path to Distribution>
+       Copy SetWeather.dll to Distribution\Assemblies and list it in Data\assemblies.json. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <AssemblyName>SetWeather</AssemblyName>
+    <RootNamespace>Server.Commands.SetWeather</RootNamespace>
+    <NoWarn>$(NoWarn);CS1701;CS1702</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Server"><HintPath>$(ModernUODist)\Server.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UOContent"><HintPath>$(ModernUODist)\Assemblies\UOContent.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Logger"><HintPath>$(ModernUODist)\Assemblies\Logger.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+
+</Project>

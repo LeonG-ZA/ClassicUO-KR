@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Description>Kingdom Reborn asset readers (UOP container, AMOU animations, tileart) for ClassicUO.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Our own torch art and the numbers to build the lantern and candle from the KR install; no EA art. -->
+    <EmbeddedResource Include="Resources\held-lights.bin" LogicalName="ClassicUO.KR.Resources.held-lights.bin" />
+    <!-- Our own flame scripts for EC's emptied ones (Effects/KrEffects.cs, OwnScript). -->
+    <EmbeddedResource Include="Resources\flames\*.ems" LogicalName="ClassicUO.KR.Resources.flames.%(Filename)%(Extension)" />
+    <!-- Where our flames sit on each static, from tools/flame-tuner. -->
+    <EmbeddedResource Include="Resources\flames\*.txt" LogicalName="ClassicUO.KR.Resources.flames.%(Filename)%(Extension)" />
+  </ItemGroup>
+
+</Project>
