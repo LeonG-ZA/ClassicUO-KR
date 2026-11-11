@@ -218,8 +218,10 @@ namespace ClassicUO
                         ? Settings.GlobalSettings.EcFrameScale
                         : Settings.GlobalSettings.KrFrameScale;
 
-                    // Our own left-hand lights are built from KR art: only with KR, and EC humans off.
-                    KrAnimationProvider.Instance.OwnHeldLights = !ecOnly && !Settings.GlobalSettings.EcHumans;
+                    // Our own left-hand lights are built from KR art: only with KR, and EC humans off
+                    // (ec_humans with no ec_path counts as off: it is on by default).
+                    KrAnimationProvider.Instance.OwnHeldLights = !ecOnly
+                        && !(Settings.GlobalSettings.EcHumans && !string.IsNullOrWhiteSpace(Settings.GlobalSettings.EcPath));
 
                     if (Settings.GlobalSettings.EcHumans && !string.IsNullOrWhiteSpace(Settings.GlobalSettings.EcPath))
                     {

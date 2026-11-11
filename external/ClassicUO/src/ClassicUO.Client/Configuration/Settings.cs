@@ -121,11 +121,11 @@ namespace ClassicUO.Configuration
         /// ambient and each light-giving object - candles, windows, mushrooms -
         /// brightens it with its own KR light texture. Replaces the 2D client's lights.
         /// </summary>
-        [JsonPropertyName("kr_lighting")] public bool KrLighting { get; set; } = false;
+        [JsonPropertyName("kr_lighting")] public bool KrLighting { get; set; } = true;
 
         [JsonPropertyName("ec_path")] public string EcPath { get; set; } = string.Empty;
 
-        [JsonPropertyName("ec_humans")] public bool EcHumans { get; set; } = false;
+        [JsonPropertyName("ec_humans")] public bool EcHumans { get; set; } = true;
 
         /// <summary>
         /// Draw the ground from the Enhanced Client at <see cref="EcPath"/>
@@ -133,14 +133,14 @@ namespace ClassicUO.Configuration
         /// table (legacyterrainmap.csv). Off by default; KR stays the source.
         /// Needs kr_terrain on.
         /// </summary>
-        [JsonPropertyName("ec_terrain")] public bool EcTerrain { get; set; } = false;
+        [JsonPropertyName("ec_terrain")] public bool EcTerrain { get; set; } = true;
 
         /// <summary>
         /// Draw statics - buildings, trees, items - from the Enhanced Client at
         /// <see cref="EcPath"/> instead of KR: its tileart, world art and facets.
         /// Off by default; KR stays the source. Needs kr_statics on.
         /// </summary>
-        [JsonPropertyName("ec_statics")] public bool EcStatics { get; set; } = false;
+        [JsonPropertyName("ec_statics")] public bool EcStatics { get; set; } = true;
 
         /// <summary>
         /// Play effects - spell effects, and flames and sparks on statics - from
@@ -148,7 +148,7 @@ namespace ClassicUO.Configuration
         /// behind them for scenes EC's cannot be read. Off by default; KR stays
         /// the source. Needs kr_particle_effects on.
         /// </summary>
-        [JsonPropertyName("ec_effects")] public bool EcEffects { get; set; } = false;
+        [JsonPropertyName("ec_effects")] public bool EcEffects { get; set; } = true;
 
         /// <summary>Factor EC people are drawn at; 0.93 puts EC's human on the 2D grid.</summary>
         /// <summary>Extra screen px an EC rider sits lower on a KR mount, beyond the measured seat.</summary>
@@ -161,7 +161,7 @@ namespace ClassicUO.Configuration
         /// has them. Off by default: it changes the look of the whole world,
         /// and it costs a ~2.4s sweep of the facet packages at startup.
         /// </summary>
-        [JsonPropertyName("kr_terrain")] public bool KrTerrain { get; set; } = false;
+        [JsonPropertyName("kr_terrain")] public bool KrTerrain { get; set; } = true;
 
         // KR terrain on the GPU: uniform composite land is composed by the
         // shader from an atlas of the terrains' textures, at their own
@@ -195,7 +195,7 @@ namespace ClassicUO.Configuration
         // Without kr_advertise_uotd the shard sends a spell's 2D effect, which
         // is played as the KR effect it stands for (KrEffectFallback). Off by
         // default.
-        [JsonPropertyName("kr_particle_effects")] public bool KrParticleEffects { get; set; } = false;
+        [JsonPropertyName("kr_particle_effects")] public bool KrParticleEffects { get; set; } = true;
 
         // With kr_particle_effects, ask the shard for its particle effects
         // (packet 0xC7, which carries the KR effect id): RunUO sends 0xC7
@@ -210,19 +210,19 @@ namespace ClassicUO.Configuration
 
         // KR weather: snow as KR's particle scene, rain as its streak sheets.
         // Off draws the 2D weather. Needs kr_path.
-        [JsonPropertyName("kr_weather")] public bool KrWeather { get; set; } = false;
+        [JsonPropertyName("kr_weather")] public bool KrWeather { get; set; } = true;
 
         // With kr_weather, rain splashes on the ground as KR's puddle scenes
         // do (Splash.tga rings), kept off ground under a roof hidden over the
         // player. Off by default.
         [JsonPropertyName("kr_rain_splashes")] public bool KrRainSplashes { get; set; } = false;
 
-        [JsonPropertyName("kr_statics")] public bool KrStatics { get; set; } = false;
+        [JsonPropertyName("kr_statics")] public bool KrStatics { get; set; } = true;
 
         // Items in containers and the backpack drawn with the KR (or EC, with
         // ec_statics) item art, as the world draws them. Needs kr_statics.
         // Off keeps the 2D art in containers.
-        [JsonPropertyName("kr_container_item_art")] public bool KrContainerItemArt { get; set; } = false;
+        [JsonPropertyName("kr_container_item_art")] public bool KrContainerItemArt { get; set; } = true;
 
         [JsonPropertyName("kr_frame_scale")] public double KrFrameScale { get; set; } = 2.0 / 3.0;
 
