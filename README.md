@@ -63,9 +63,26 @@ The 2D client's files are always required. `kr_path` and `ec_path` are optional:
 - With only `kr_path`, the Kingdom Reborn art is used.
 - With only `ec_path`, the Enhanced Client art is used. Turn on `ec_humans`,
   `ec_terrain`, `ec_statics` and `ec_effects` too.
+- With both, the Kingdom Reborn art is used, and each `ec_` setting switches
+  that part over to the Enhanced Client.
 - With neither, the client behaves like ClassicUO.
 
 Anything an install has no art for falls back to the 2D art.
+
+### You don't need Kingdom Reborn
+
+The Enhanced Client still carries the Kingdom Reborn art, so an Enhanced Client
+install on its own is enough. The one thing it lacks is the torch, candle and
+wall-sconce flames, which it ships empty. When `kr_path` is left empty, this
+project draws its own flames in their place.
+
+### Torches, lanterns and candles held in the hand
+
+Kingdom Reborn never shipped left-hand animations for holding a torch, lantern
+or candle. With only `kr_path` set, this project draws its own versions on the
+character. When `ec_path` is set and the Enhanced Client draws the characters
+(with `ec_humans` on, or with no `kr_path` at all), the Enhanced Client's own
+versions are used instead.
 
 ## License
 
