@@ -4,6 +4,8 @@ An Ultima Online client built on [ClassicUO](https://github.com/ClassicUO/Classi
 that can draw the world with art from your own Kingdom Reborn or Enhanced Client
 install. Networking, gumps, UI, input and macros stay ClassicUO.
 
+![ClassicUO-KR drawing the world with Enhanced Client art](docs/ClassicUO-KR.png)
+
 **No game assets are included.** This repository holds code, numbers and a small
 amount of original art. Every asset is read at run time from installs you
 already have.
